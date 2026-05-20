@@ -117,6 +117,7 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
 
 .nav-logo {
@@ -201,15 +202,9 @@ body::before {
     background: none;
     border: none;
     color: var(--off-white-frio);
-    font-size: 1.5rem;
     cursor: pointer;
     transition: var(--transition-smooth);
     z-index: 120;
-    padding: 8px;
-}
-
-.menu-toggle:hover {
-    color: var(--verde-brilhante);
 }
 
 /* --- MAIN CONTENT & LAYOUTS --- */
@@ -903,9 +898,26 @@ body::before {
 }
 
 @media (max-width: 768px) {
-    /* Ativar botão hambúrguer */
+    /* Ativar e expandir o botão Hambúrguer na extrema DIREITA */
     .menu-toggle { 
         display: block !important; 
+        font-size: 2rem !important; /* Botão visivelmente maior */
+        padding: 12px 16px !important; /* Área de toque muito maior */
+        order: 3 !important; /* Força ficar na extrema direita */
+    }
+
+    /* Centralizar o CTA "Começar Projeto" no MEIO */
+    .navbar .nav-cta {
+        display: inline-block !important; /* Garante que ele continue visível */
+        font-size: 0.85rem !important;
+        padding: 8px 18px !important;
+        order: 2 !important; /* Coloca-o no centro da distribuição flexbox */
+        margin: 0 auto !important; /* Empurra o botão para alinhar centralizado */
+    }
+
+    /* Garantir a logo posicionada na ESQUERDA */
+    .nav-logo {
+        order: 1 !important;
     }
 
     /* Transformar barra de links no painel suspenso Ultra Glassmorphism */
@@ -917,7 +929,7 @@ body::before {
         top: 80px !important;
         left: 0 !important;
         width: 100% !important;
-        background: rgba(7, 9, 8, 0.96) !important;
+        background: rgba(7, 9, 8, 0.98) !important; /* Ligeiramente mais denso para evitar vazamentos visuais */
         backdrop-filter: blur(35px) !important;
         -webkit-backdrop-filter: blur(35px) !important;
         border-bottom: 1px solid var(--borda-glass) !important;
@@ -952,11 +964,6 @@ body::before {
         padding: 10px 0 !important;
         color: rgba(242, 245, 244, 0.8) !important;
         width: 100% !important;
-    }
-
-    /* Ocultar CTA fixo do Desktop no telemóvel */
-    .navbar .nav-cta {
-        display: none !important;
     }
 
     /* Adaptação e correção de blocos Mobile */
