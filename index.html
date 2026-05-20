@@ -29,7 +29,7 @@
                     </g>
                 </svg>
             </a>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="js-nav-menu">
                 <li class="nav-item"><a href="#home">Home</a></li>
                 <li class="nav-item"><a href="#servicos">Serviços</a></li>
                 <li class="nav-item"><a href="#processo">Processo</a></li>
@@ -37,6 +37,9 @@
                 <li class="nav-item"><a href="#pacotes">Pacotes</a></li>
                 <li class="nav-item"><a href="#feedbacks">Clientes</a></li>
             </ul>
+            <button class="menu-toggle" id="js-menu-toggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <a href="https://wa.me/5562991381761" target="_blank" class="nav-cta">Começar Projeto</a>
         </div>
     </nav>
@@ -446,7 +449,7 @@
                     <input type="checkbox" id="faq2">
                     <label for="faq2" class="faq-label">Qual é o prazo médio dos projetos?</label>
                     <div class="faq-content">
-                        <p>O desenvolvimento de uma Identidade Visual Estratégica completa costuma levar entre 15 a 25 dias úteis. Projetos pontuais ou recorrentes de Social Media possuem prazos sob medida para cada cliente.</p>
+                        <p>O desenvolvimento de uma Identidade Visual Estratégica completa costuma levar entre 15 a 25 dias úteis. Projetos pontuais ou recorrentes de Social Media possuem prazos sob medida para cada client.</p>
                     </div>
                 </div>
 
@@ -483,5 +486,27 @@
 
     </main>
 
+    <script>
+        const menuToggle = document.getElementById('js-menu-toggle');
+        const navMenu = document.getElementById('js-nav-menu');
+        const menuLinks = document.querySelectorAll('.nav-item a');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if(navMenu.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fa-solid fa-bars';
+            });
+        });
+    </script>
 </body>
 </html>
