@@ -2,511 +2,307 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Agência Moove | Design Estratégico & Identidade Visual</title>
-    
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
-    
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacqueline Silva | Visual Designer</title>
+    <style>
+        /* Importando fontes expressivas do Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..0,900;1,100..0,900&family=Rubik+Mono+One&family=Space+Grotesk:wght@300..700&display=swap');
 
-    <link rel="stylesheet" href="style.css">
+        :root {
+            --bg-dark: #0d0614;
+            --purple-main: #3a1c5c;
+            --purple-light: #6a2c91;
+            --neon-pink: #ff2a85;
+            --text-light: #ffffff;
+            --font-display: 'Rubik Mono One', sans-serif;
+            --font-body: 'Space Grotesk', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 20% 30%, rgba(106, 44, 145, 0.4) 0%, transparent 40%),
+                              radial-gradient(circle at 80% 70%, rgba(255, 42, 133, 0.2) 0%, transparent 40%);
+        }
+
+        /* --- HEADER / NAV --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            text-transform: lowercase;
+            letter-spacing: -1px;
+            transform: rotate(-2deg);
+            background: var(--neon-pink);
+            padding: 5px 15px;
+            box-shadow: 4px 4px 0px var(--text-light);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-pink);
+            text-shadow: 2px 2px 0px var(--purple-light);
+        }
+
+        /* --- HERO SECTION (Estilo Colagem) --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 85vh;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-text {
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Efeito de recorte de revista nas palavras chave */
+        .hero-text h1 span.badge {
+            background-color: var(--text-light);
+            color: var(--bg-dark);
+            padding: 0 10px;
+            display: inline-block;
+            transform: rotate(3deg);
+            box-shadow: 5px 5px 0px var(--neon-pink);
+        }
+
+        .hero-text h1 span.highlight {
+            color: #fff;
+            text-shadow: -3px 3px 0px var(--purple-light), -6px 6px 0px var(--neon-pink);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            color: #ccc;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            font-family: var(--font-display);
+            background-color: var(--neon-pink);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            box-shadow: 6px 6px 0px var(--text-light);
+            transition: transform 0.2s, box-shadow 0.2s;
+            transform: rotate(-1deg);
+        }
+
+        .cta-btn:hover {
+            transform: translate(-4px, -4px) rotate(-1deg);
+            box-shadow: 10px 10px 0px var(--purple-light);
+        }
+
+        /* Lado direito da colagem */
+        .hero-collage {
+            position: relative;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Elementos simulando os cards flutuantes do Instagram */
+        .collage-item {
+            position: absolute;
+            border: 4px solid var(--text-light);
+            border-radius: 12px;
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+            background: var(--purple-main);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .collage-item:hover {
+            transform: scale(1.05) z-index: 10 !important;
+        }
+
+        .card-1 {
+            width: 260px;
+            height: 320px;
+            top: 20px;
+            left: 10%;
+            transform: rotate(-6deg);
+            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500'); /* Placeholder 3D/Abstract */
+            background-size: cover;
+        }
+
+        .card-2 {
+            width: 240px;
+            height: 240px;
+            bottom: 40px;
+            right: 15%;
+            transform: rotate(8deg);
+            background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=500'); /* Placeholder 3D/Abstract */
+            background-size: cover;
+            border-color: var(--neon-pink);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 40%;
+            left: 35%;
+            background: #fff;
+            color: #000;
+            padding: 10px 20px;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            transform: rotate(-12deg);
+            box-shadow: 5px 5px 0px var(--purple-light);
+        }
+
+        /* --- SECTION PORTFÓLIO (Bento Grid Assimétrica) --- */
+        .portfolio {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-title span {
+            background: var(--purple-light);
+            padding: 5px 15px;
+            transform: skewX(-10deg);
+            display: inline-block;
+        }
+
+        .grid-portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: #160d22;
+            border: 3px solid #331b4e;
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: 0.3s;
+        }
+
+        .portfolio-item:hover {
+            border-color: var(--neon-pink);
+            transform: translateY(-5px);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: var(--purple-main);
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Estilizando títulos dos cards como os posts dela */
+        .portfolio-item h3 {
+            font-family: var(--font-body);
+            font-weight: 800;
+            font-size: 1.3rem;
+            line-height: 1.2;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1rem; }
+            nav a { margin: 0 1rem; }
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 3rem; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text p { margin: 1.5rem auto; }
+            .hero-collage { height: 350px; margin-top: 2rem; }
+            .card-1 { width: 180px; height: 230px; }
+            .card-2 { width: 160px; height: 160px; }
+            .card-badge { font-size: 0.7rem; left: 25%; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="glow-radial-1"></div>
-    <div class="glow-radial-2"></div>
-    <div class="liquid-metal-bg"></div>
+    <header>
+        <div class="logo">jacqueline.dsgn</div>
+        <nav>
+            <a href="#portfolio">Trabalhos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Fale Comigo</a>
+        </nav>
+    </header>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <svg class="nav-logo-svg" viewBox="0 0 712 293" version="1.1" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-                    <g id="Logo">
-                        <path d="M147.5,0l35,-0c15.179,3.007 52.392,5.047 131.708,74.84c25.515,22.452 25.045,22.715 27.549,24.248c5.884,3.602 11.963,14.538 17.572,9.213c13.914,-13.21 15.022,-11.761 28.996,-25.004c1.527,-1.447 2.887,-3.068 4.466,-4.458c81.415,-71.648 112.448,-73.651 133.709,-78.839l41,-0c25.003,5.067 39.62,12.206 42.857,13.787c79.692,38.925 93.925,101.801 101.642,139.713l0,1c-0.675,1.978 -0.7,1.907 0,4l0,1c-1.705,4.942 -0.749,4.855 -0,10l0,10c-0.254,1.745 -3.135,2.981 0,9l0,1c-1.874,7.665 -12.12,78.064 -65.499,103.499l-13,0c-10.467,-6.541 -11.075,-5.49 -13.665,-8.788c-14.506,-18.475 2.073,-24.936 13.952,-48.564c5.305,-10.551 43.458,-86.439 -24.999,-145.483c-80.747,-69.644 -151.361,26.569 -181.032,44.752c-15.716,9.631 -49.864,54.001 -78.163,48.314c-22.887,-4.6 -85.881,-69.849 -130.813,-100.078c-48.275,-32.477 -96.986,-16.457 -126.617,18.057c-57.062,66.467 -16.424,130.411 -8.219,145.047c9.126,16.279 29.876,25.227 -4.445,46.742l-15,0c-8.826,-5.528 -24.314,-9.526 -47.399,-50.298c-10.467,-18.487 -14.18,-41.2 -17.101,-53.201l0,-1c2.809,-5.389 0.424,-5.506 0,-8l0,-10c0.697,-5.461 1.933,-5.405 0,-11l-0,-5c3.301,-18.81 10.348,-68.158 60.793,-114.659c32.886,-30.315 79.19,-38.511 86.707,-39.841Z" style="fill:#F2F5F4;fill-opacity:0.99;"/>
-                        <path d="M527.5,292.999l-44,0c-20.321,-13.757 6.393,-25.153 16.828,-34.703c2.481,-2.271 38.407,-31.287 39.921,-32.209c39.782,-24.235 20.213,-61.59 -3.561,-51.19c-5.051,2.209 -98.761,79.235 -120.477,98.263c-14.468,12.677 -37.992,7.28 -44.378,-1.947c-23.069,-33.334 -0.09,-45.035 31.958,-72.373c76.243,-65.041 78.066,-62.721 84.555,-68.526c55.303,-49.473 134.237,-7.326 135.457,56.179c0.431,22.444 -1.514,58.213 -68.061,102.432c-1.901,1.263 -2.126,1.413 -28.241,4.075Z" style="fill:#F2F5F4;fill-opacity:0.99;"/>
-                        <path d="M230.5,292.999l-60,0c-23.326,-3.681 -29.582,-17.244 -39.247,-23.092c-48.333,-29.245 -65.364,-119.68 3.054,-153.813c57.633,-28.752 110.435,33.594 122.449,40.983c2.929,1.801 44.561,36.278 50.92,42.214c20.996,19.603 42.686,23.066 41.108,56.253c-0.303,6.367 -20.019,39.714 -50.01,19.613c-0.324,-0.217 -69.485,-56.815 -74.453,-61.446c-19.393,-18.079 -21.535,-15.194 -40.998,-33.003c-25.859,-23.663 -43.942,14.782 -29.619,29.626c15.619,16.188 33.888,27.345 49.981,41.947c24.933,22.624 42.387,21.972 26.816,40.718Z" style="fill:#F2F5F4;fill-opacity:0.99;"/>
-                    </g>
-                </svg>
-            </a>
-            <ul class="nav-menu" id="js-nav-menu">
-                <li class="nav-item"><a href="#home">Home</a></li>
-                <li class="nav-item"><a href="#servicos">Serviços</a></li>
-                <li class="nav-item"><a href="#processo">Processo</a></li>
-                <li class="nav-item"><a href="#portfolio">Portfólio</a></li>
-                <li class="nav-item"><a href="#pacotes">Pacotes</a></li>
-                <li class="nav-item"><a href="#feedbacks">Clientes</a></li>
-            </ul>
-            <button class="menu-toggle" id="js-menu-toggle" aria-label="Abrir menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <a href="https://wa.me/5562991381761" target="_blank" class="nav-cta">Começar Projeto</a>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Transformo sua marca em algo que dá <span class="highlight">orgulho</span> de <span class="badge">mostrar</span></h1>
+            <p>Identidade visual & design com personalidade marcante, narrativa visual e aquela estética pop/criativa que prende a atenção no feed.</p>
+            <a href="https://wa.me/seu-numero" class="cta-btn" target="_blank">Bora criar juntos?</a>
         </div>
-    </nav>
-
-    <main class="main-content">
         
-        <section class="hero" id="home">
-            <div class="hero-badge">
-                <i class="fa-solid fa-bolt-lightning"></i> Design System Premium para o seu Negócio
-            </div>
-            <h1 class="hero-title">Acelere sua marca através de design premium</h1>
-            <p class="hero-subtitle">
-                Identidade forte & posicionamento sob medida. Traduzimos a autoridade do seu negócio em <span>experiências visuais de alto padrão</span>.
-            </p>
-            <div class="hero-actions">
-                <a href="https://wa.me/5562991381761" target="_blank" class="btn-primary">
-                    <i class="fa-brands fa-whatsapp"></i> Fale com nosso time!
-                </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdA20C1iBGjW7S6mSmFt0EdY4CJgG4tihiUQpwRNA09T79xIg/viewform" target="_blank" class="btn-secondary">
-                    <i class="fa-regular fa-file-lines"></i> Preencher Briefing
-                </a>
-            </div>
-        </section>
+        <div class="hero-collage">
+            <div class="collage-item card-1"></div>
+            <div class="collage-item card-2"></div>
+            <div class="card-badge">DESIGN CRATIVO</div>
+        </div>
+    </section>
 
-        <section class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">+50</div>
-                <div class="stat-desc">Marcas no Topo</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-desc">Projetos Autorais</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">1 ANO</div>
-                <div class="stat-desc">De Agência Solidificada</div>
-            </div>
-        </section>
-
-        <section id="servicos">
-            <div class="section-header">
-                <h2 class="section-title">O que fazemos de melhor</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
-                    <h3 class="service-title">Identidade Visual</h3>
-                    <p class="service-text">Logotipos estratégicos, manuais de marca e ecossistemas completos para empresas que exigem valor agregado.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-share-nodes"></i></div>
-                    <h3 class="service-title">Design Digital</h3>
-                    <p class="service-text">Direção de arte para redes sociais, e materiais digitais.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-cubes"></i></div>
-                    <h3 class="service-title">Mascotes 3D</h3>
-                    <p class="service-text">Mascotes exclusivos para dar personalidade moderna e interativa à sua marca.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="processo">
-            <div class="section-header">
-                <h2 class="section-title">Nosso processo estratégico</h2>
-            </div>
-            <div class="process-grid">
-                <div class="process-card">
-                    <div class="process-step">01</div>
-                    <h3 class="process-title">Imersão / Briefing</h3>
-                    <p class="process-text">Estudo aprofundado do seu mercado, público-alvo e essência do negócio para traçar a melhor rota criativa.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-step">02</div>
-                    <h3 class="process-title">Conceituação</h3>
-                    <p class="process-text">Criação de caminhos visuais inovadores e desenvolvimento estratégico da arquitetura do projeto.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-step">03</div>
-                    <h3 class="process-title">Refinamento</h3>
-                    <p class="process-text">Apresentação do ecossistema e rodadas de ajuste milimétricas para garantir um resultado impecável.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-step">04</div>
-                    <h3 class="process-title">Entrega</h3>
-                    <p class="process-text">Envio de todos os arquivos organizados, prontos em alta escala e com suporte completo pós-entrega.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="portfolio">
-            <div class="section-header">
-                <h2 class="section-title">Portfólio</h2>
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">Últimos <span>Projetos</span></h2>
+        
+        <div class="grid-portfolio">
+            <div class="portfolio-item">
+                <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=500');"></div>
+                <h3>Como fazer uma Narrativa Visual de impacto</h3>
             </div>
             
-            <div class="portfolio-grid">
-                <a href="https://www.behance.net/gallery/229654613/Posts-para-Social-Media-Clinica-Mdica" target="_blank" class="portfolio-item">
-                    <img src="projeto1.jpg" alt="Posts para Social Media | Clínica Médica" class="project-image">
-                    <div class="project-overlay">
-                        <div class="project-category">Social Media</div>
-                        <div class="project-title">Posts para Social Media | Clínica Médica</div>
-                    </div>
-                </a>
-
-                <a href="https://www.behance.net/gallery/232619649/Chamego-Identidade-Visual" target="_blank" class="portfolio-item">
-                    <img src="projeto2.jpg" alt="Chamego - Identidade Visual" class="project-image">
-                    <div class="project-overlay">
-                        <div class="project-category">Identidade Visual</div>
-                        <div class="project-title">Chamego - Identidade Visual</div>
-                    </div>
-                </a>
-
-                <a href="https://www.behance.net/gallery/222565435/Mascote-3D-Doce-Sabor" target="_blank" class="portfolio-item">
-                    <img src="projeto3.jpg" alt="Mascote 3D - Doce Sabor" class="project-image">
-                    <div class="project-overlay">
-                        <div class="project-category">Mascote 3D</div>
-                        <div class="project-title">Mascote 3D - Doce Sabor</div>
-                    </div>
-                </a>
-
-                <a href="https://www.behance.net/gallery/230006293/Identidade-Visual-Angel-Fideles" target="_blank" class="portfolio-item">
-                    <img src="projeto4.jpg" alt="Identidade Visual | Angel Fideles" class="project-image">
-                    <div class="project-overlay">
-                        <div class="project-category">Identidade Visual</div>
-                        <div class="project-title">Identidade Visual | Angel Fideles</div>
-                    </div>
-                </a>
+            <div class="portfolio-item">
+                <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=500');"></div>
+                <h3>Identidade Visual Revelada</h3>
             </div>
 
-            <div class="view-more-row">
-                <a href="https://www.behance.net/mooveagncia1#" target="_blank" class="btn-outline-sm">
-                    Ver mais projetos no Behance <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+            <div class="portfolio-item">
+                <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500');"></div>
+                <h3>O que fazer para não ser ignorado</h3>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="pacotes">
-            <div class="section-header">
-                <h2 class="section-title">Nossos Pacotes</h2>
-            </div>
-
-            <div class="packages-intro">
-                <i class="fa-solid fa-sliders"></i>
-                <p>Nossos pacotes foram estruturados de forma inteligente para atender diferentes objetivos de marca. Lembramos que <strong>você tem total liberdade para personalizar o planejamento</strong>, ajustando a quantidade de posts ou nível de profundidade da Identidade Visual (IDV) de acordo com o seu orçamento.</p>
-            </div>
-
-            <div class="package-section-title"><i class="fa-solid fa-palette"></i> Pacotes de Artes</div>
-            <div class="pricing-grid">
-                
-                <div class="price-card">
-                    <div class="price-header">
-                        <h4>Start Design</h4>
-                        <p>Pra quem precisa marcar presença sem complicação.</p>
-                    </div>
-                    <div>
-                        <div class="price-value"><span>R$</span>390</div>
-                        <ul class="price-features">
-                            <li><i class="fa-solid fa-check"></i> Até 6 conteúdos</li>
-                            <li><i class="fa-solid fa-check"></i> Até 4 posts simples</li>
-                            <li><i class="fa-solid fa-check"></i> Até 2 carrosséis de até 3 páginas</li>
-                            <li><i class="fa-solid fa-check"></i> 2 variações por arte</li>
-                            <li><i class="fa-solid fa-check"></i> Formatos para redes</li>
-                            <li><i class="fa-solid fa-check"></i> Entrega em até 5 dias</li>
-                            <li><i class="fa-solid fa-check"></i> 1 revisão inclusa</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5562991381761?text=Ol%C3%A1!%20Vi%20o%20pacote%20Start%20Design%20no%20site%20e%20tenho%20interesse%20em%20contratar.%20Gostaria%20de%20alinhar%20os%20detalhes%20e%20iniciar%20os%20conte%C3%BAdos%20da%20minha%20marca." target="_blank" class="btn-price-cta">Selecionar Plano</a>
-                </div>
-
-                <div class="price-card featured">
-                    <div class="price-badge">Mais Popular</div>
-                    <div class="price-header">
-                        <h4>Pro Design</h4>
-                        <p>Pra marcas que querem conteúdo mais estratégico e visual forte.</p>
-                    </div>
-                    <div>
-                        <div class="price-value"><span>R$</span>690</div>
-                        <ul class="price-features">
-                            <li><i class="fa-solid fa-check"></i> Até 10 conteúdos</li>
-                            <li><i class="fa-solid fa-check"></i> Até 5 posts simples</li>
-                            <li><i class="fa-solid fa-check"></i> Até 5 carrosséis de até 5 páginas</li>
-                            <li><i class="fa-solid fa-check"></i> Direção visual da campanha</li>
-                            <li><i class="fa-solid fa-check"></i> 3 variações por arte</li>
-                            <li><i class="fa-solid fa-check"></i> Formatos para redes</li>
-                            <li><i class="fa-solid fa-check"></i> Entrega em até 7 dias</li>
-                            <li><i class="fa-solid fa-check"></i> 2 revisões inclusas</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5562991381761?text=Ol%C3%A1!%20Vi%20o%20pacote%20Pro%20Design%20no%20site%20e%20gostaria%20de%20entender%20melhor%20como%20funciona%20para%20iniciar%20os%20conte%C3%BAdos%20da%20minha%20empresa." target="_blank" class="btn-price-cta">Selecionar Plano</a>
-                </div>
-
-                <div class="price-card">
-                    <div class="price-header">
-                        <h4>Diamond Design</h4>
-                        <p>Estrutura visual completa para marcas que querem crescer.</p>
-                    </div>
-                    <div>
-                        <div class="price-value"><span>R$</span>1.190</div>
-                        <ul class="price-features">
-                            <li><i class="fa-solid fa-check"></i> Até 16 conteúdos</li>
-                            <li><i class="fa-solid fa-check"></i> Até 8 posts simples</li>
-                            <li><i class="fa-solid fa-check"></i> Até 8 carrosséis de até 6 páginas</li>
-                            <li><i class="fa-solid fa-check"></i> Linha visual consistente</li>
-                            <li><i class="fa-solid fa-check"></i> Adaptação para anúncios</li>
-                            <li><i class="fa-solid fa-check"></i> Prioridade na fila</li>
-                            <li><i class="fa-solid fa-check"></i> Formatos para redes</li>
-                            <li><i class="fa-solid fa-check"></i> Entrega em até 10 dias</li>
-                            <li><i class="fa-solid fa-check"></i> 4 revisões inclusas</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5562991381761?text=Ol%C3%A1!%20Tenho%20interesse%20no%20pacote%20Diamond%20Design%20que%20vi%20no%20site.%20Gostaria%20de%20conversar%20sobre%20o%20projeto%20e%20entender%20os%20primeiros%20passos." target="_blank" class="btn-price-cta">Selecionar Plano</a>
-                </div>
-
-                <div class="price-card">
-                    <div class="price-header">
-                        <h4>Supreme Design</h4>
-                        <p>Pacote avançado para marcas que querem nível agência.</p>
-                    </div>
-                    <div>
-                        <div class="price-value"><span>R$</span>1.890</div>
-                        <ul class="price-features">
-                            <li><i class="fa-solid fa-check"></i> Até 25 conteúdos</li>
-                            <li><i class="fa-solid fa-check"></i> Mix livre entre posts e carrosséis</li>
-                            <li><i class="fa-solid fa-check"></i> Carrosséis de até 8 páginas</li>
-                            <li><i class="fa-solid fa-check"></i> Direção criativa completa</li>
-                            <li><i class="fa-solid fa-check"></i> Suporte prioritário</li>
-                            <li><i class="fa-solid fa-check"></i> Revisões flexíveis</li>
-                            <li><i class="fa-solid fa-check"></i> Consultoria visual</li>
-                            <li><i class="fa-solid fa-check"></i> Entrega em até 15 dias</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5562991381761?text=Ol%C3%A1!%20Vi%20o%20pacote%20Supreme%20Design%20no%20site%20e%20tenho%20interesse%20em%20um%20trabalho%20mais%20estrat%C3%A9gico%20e%20completo%20para%20minha%20marca." target="_blank" class="btn-price-cta">Selecionar Plano</a>
-                </div>
-            </div>
-
-            <div class="addons-box" style="margin-bottom: 44px;">
-                <div class="addons-title"><i class="fa-solid fa-puzzle-piece"></i> Serviços adicionais</div>
-                <div class="addons-grid">
-                    <div class="addon-item">
-                        <span class="addon-name">Página extra de carrossel</span>
-                        <span class="addon-price">A partir de R$ 15</span>
-                    </div>
-                    <div class="addon-item">
-                        <span class="addon-name">Carrossel avulso completo</span>
-                        <span class="addon-price">A partir de R$ 60</span>
-                    </div>
-                    <div class="addon-item">
-                        <span class="addon-name">Post avulso estático</span>
-                        <span class="addon-price">A partir de R$ 40</span>
-                    </div>
-                    <div class="addon-item">
-                        <span class="addon-name">Taxa de urgência para prazos reduzidos</span>
-                        <span class="addon-price">Sob consulta</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="package-section-title" style="white-space: nowrap;"><i class="fa-solid fa-vector-square"></i> Identidade Visual</div>
-            <div class="pricing-grid">
-                
-                <div class="price-card">
-                    <div class="price-header">
-                        <h4>StartUP</h4>
-                        <p>Pra quem quer sair do improviso.</p>
-                    </div>
-                    <div>
-                        <div class="price-value"><span>R$</span>190</div>
-                        <ul class="price-features">
-                            <li><i class="fa-solid fa-check"></i> Logo principal</li>
-                            <li><i class="fa-solid fa-check"></i> Paleta de cores</li>
-                            <li><i class="fa-solid fa-check"></i> Tipografia definida</li>
-                            <li><i class="fa-solid fa-check"></i> Arquivos PNG/JPG</li>
-                            <li><i class="fa-solid fa-check"></i> 1 revisão inclusa</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5562991381761?text=Ol%C3%A1!%20Vi%20o%20pacote%20StartUP%20de%20identidade%20visual%20e%20gostaria%20de%20iniciar%20a%20cria%C3%A7%C3%A3o%20da%20minha%20marca." target="_blank" class="btn-price-cta">Selecionar Plano</a>
-                </div>
-
-                <div class="price-card">
-                    <div class="price-header">
-                        <h4>IDV Essencial</h4>
-                        <p>Pra marcas que precisam começar organizadas.</p>
-                    </div>
-                    <div>
-                        <div class="price-value"><span>R$</span>490</div>
-                        <ul class="price-features">
-                            <li><i class="fa-solid fa-check"></i> Logo principal</li>
-                            <li><i class="fa-solid fa-check"></i> Variações da logo</li>
-                            <li><i class="fa-solid fa-check"></i> Paleta de cores</li>
-                            <li><i class="fa-solid fa-check"></i> Tipografia definida</li>
-                            <li><i class="fa-solid fa-check"></i> Mockups de apresentação</li>
-                            <li><i class="fa-solid fa-check"></i> Arquivos prontos para redes</li>
-                            <li><i class="fa-solid fa-check"></i> 2 revisões inclusas</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5562991381761?text=Ol%C3%A1!%20Tenho%20interesse%20no%20pacote%20IDV%20Essencial%20que%20vi%20no%20site.%20Gostaria%20de%20entender%20como%20funciona%20o%20processo." target="_blank" class="btn-price-cta">Selecionar Plano</a>
-                </div>
-
-                <div class="price-card featured">
-                    <div class="price-badge">Mais Popular</div>
-                    <div class="price-header">
-                        <h4>IDV Profissional</h4>
-                        <p>Identidade visual estratégica para marcas que querem se destacar.</p>
-                    </div>
-                    <div>
-                        <div class="price-value"><span>R$</span>890</div>
-                        <ul class="price-features">
-                            <li><i class="fa-solid fa-check"></i> Tudo do Essencial</li>
-                            <li><i class="fa-solid fa-check"></i> Manual básico de uso</li>
-                            <li><i class="fa-solid fa-check"></i> Área de proteção da marca</li>
-                            <li><i class="fa-solid fa-check"></i> Aplicações da identidade</li>
-                            <li><i class="fa-solid fa-check"></i> Ícones e destaques</li>
-                            <li><i class="fa-solid fa-check"></i> Direção visual da marca</li>
-                            <li><i class="fa-solid fa-check"></i> 3 revisões inclusas</li>
-                            <li><i class="fa-solid fa-check"></i> Suporte por 20 dias</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5562991381761?text=Ol%C3%A1!%20Vi%20o%20pacote%20IDV%20Profissional%20no%20site%20e%20quero%20conversar%20sobre%20o%20posicionamento%20visual%20da%20minha%20marca." target="_blank" class="btn-price-cta">Selecionar Plano</a>
-                </div>
-
-                <div class="price-card">
-                    <div class="price-header">
-                        <h4>IDV Premium</h4>
-                        <p>Pacote completo para marcas que querem imagem forte e profissional.</p>
-                    </div>
-                    <div>
-                        <div class="price-value"><span>R$</span>1.690</div>
-                        <ul class="price-features">
-                            <li><i class="fa-solid fa-check"></i> Tudo do Profissional</li>
-                            <li><i class="fa-solid fa-check"></i> Manual completo da marca</li>
-                            <li><i class="fa-solid fa-check"></i> Estratégia visual da comunicação</li>
-                            <li><i class="fa-solid fa-check"></i> Kit redes sociais</li>
-                            <li><i class="fa-solid fa-check"></i> Papelaria digital</li>
-                            <li><i class="fa-solid fa-check"></i> Slogan e apoio visual</li>
-                            <li><i class="fa-solid fa-check"></i> Apresentação profissional da marca</li>
-                            <li><i class="fa-solid fa-check"></i> Consultoria de branding</li>
-                            <li><i class="fa-solid fa-check"></i> Suporte prioritário por 45 dias</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5562991381761?text=Ol%C3%A1!%20Tenho%20interesse%20no%20pacote%20IDV%20Premium.%20Gostaria%20de%20falar%20sobre%20um%20projeto%20mais%20completo%20e%20estrat%C3%A9gico%20para%20minha%20empresa." target="_blank" class="btn-price-cta">Selecionar Plano</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="feedbacks">
-            <div class="section-header">
-                <h2 class="section-title">O que dizem sobre nós</h2>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div>
-                        <div class="stars-container">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">“Desde que comecei a trabalhar com a Moove, meu Instagram se transformou. A equipe é ágil, paciente e criativa, tornando meus posts mais profissionais e aumentando meu engajamento. Sinto que meu conteúdo reflete minha essência e sou grata pelo suporte que melhorou minha presença digital! 💖✨”</p>
-                    </div>
-                    <div class="client-profile">
-                        <img src="cliente1.png" alt="Pamela Nicole" class="client-avatar">
-                        <div class="client-name">Pamela Nicole</div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div>
-                        <div class="stars-container">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">“Já faz mais de um ano que confiei no trabalho deles e adorei o resultando, que superou minhas expectativas. Atraí muitos clientes e minhas publicações ficaram mais interessantes e profissionais. O que mais me impressionou foi o cuidado e amor que colocam no trabalho, fazendo com que eu me sentisse acolhida e segura. Parabéns a eles! Super recomendo.”</p>
-                    </div>
-                    <div class="client-profile">
-                        <img src="cliente2.png" alt="Eugênia Andrade" class="client-avatar">
-                        <div class="client-name">Eugênia Andrade</div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div>
-                        <div class="stars-container">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">“Eu amei cada detalhe do trabalho da Moove! Desde o primeiro contato, me senti ouvida e acolhida. Entregaram exatamente o que eu precisava, com qualidade, agilidade e muito bom gosto. O resultado ficou muito acima do que eu imaginava. Recomendo de olhos fechados!”</p>
-                    </div>
-                    <div class="client-profile">
-                        <img src="cliente3.png" alt="Elizângela Gomes" class="client-avatar">
-                        <div class="client-name">Elizângela Gomes</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="faq">
-            <div class="section-header">
-                <h2 class="section-title">Perguntas frequentes</h2>
-            </div>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <input type="checkbox" id="faq1">
-                    <label for="faq1" class="faq-label">Como funciona o processo de criação?</label>
-                    <div class="faq-content">
-                        <p>Trabalhamos de forma totalmente alinhada ao seu negócio. Passamos pelo briefing strategic, conceituação visual, rodadas de validação refinadas e entrega de arquivos prontos para o uso comercial com guias de uso.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <input type="checkbox" id="faq2">
-                    <label for="faq2" class="faq-label">Qual é o prazo médio dos projetos?</label>
-                    <div class="faq-content">
-                        <p>O desenvolvimento de uma Identidade Visual Estratégica completa costuma levar entre 15 a 25 dias úteis. Projetos pontuais ou recorrentes de Social Media possuem prazos sob medida para cada client.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <input type="checkbox" id="faq3">
-                    <label for="faq3" class="faq-label">Quais arquivos e formatos vou receber?</label>
-                    <div class="faq-content">
-                        <p>Você receberá o ecossistema completo da marca: arquivos vetoriais originais e editáveis (AI, EPS e/ou Figma), formatos prontos para aplicação imediata (PDF, PNG de alta qualidade e JPG), além do manual oficial da marca.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="manifesto-card">
-                <h3>"Não adianta ter um bom produto se você <mark>não tem posicionamento</mark>."</h3>
-                <p>O cliente não procura apenas por um designer, ele busca soluções eficientes e marcas autênticas que se destacam naturalmente no mercado sem precisar brigar por preço mais baixo.</p>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/moove.agenciadig" target="_blank" class="social-icon-btn" title="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="mailto:mooveagencydigital@gmail.com" class="social-icon-btn" title="E-mail">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-            </div>
-            <div class="footer-credits">
-                DESIGNED BY MOOVE AGENCY © 2026
-            </div>
-        </footer>
-
-    </main>
-
-    <script>
-        const menuToggle = document.getElementById('js-menu-toggle');
-        const navMenu = document.getElementById('js-nav-menu');
-        const menuLinks = document.querySelectorAll('.nav-item a');
-
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            if(navMenu.classList.contains('active')) {
-                icon.className = 'fa-solid fa-xmark';
-            } else {
-                icon.className = 'fa-solid fa-bars';
-            }
-        });
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuToggle.querySelector('i').className = 'fa-solid fa-bars';
-            });
-        });
-    </script>
 </body>
 </html>
