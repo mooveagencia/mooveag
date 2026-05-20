@@ -38,7 +38,6 @@ body {
     min-height: 100vh;
 }
 
-/* Linhas de Grid Tecnológicas ao Fundo */
 body::before {
     content: "";
     position: absolute;
@@ -52,7 +51,6 @@ body::before {
     opacity: 0.8;
 }
 
-/* Brilhos de Fundo Otimizados */
 .glow-radial-1 {
     position: absolute;
     width: min(700px, 100vw);
@@ -77,7 +75,6 @@ body::before {
     filter: blur(50px);
 }
 
-/* LOGO LIQUID METAL ATIVADO (COMPUTADOR E CELULAR) */
 .liquid-metal-bg {
     position: absolute;
     top: 60px;
@@ -127,7 +124,7 @@ body::before {
     align-items: center;
     text-decoration: none;
     transition: var(--transition-smooth);
-    z-index: 10;
+    z-index: 110;
 }
 
 .nav-logo:hover {
@@ -189,6 +186,7 @@ body::before {
     font-size: 0.8rem;
     font-weight: 700;
     transition: var(--transition-smooth);
+    z-index: 110;
 }
 
 .nav-cta:hover {
@@ -197,7 +195,24 @@ body::before {
     transform: translateY(-2px);
 }
 
-/* --- CONTAINER DO CONTEÚDO --- */
+/* BOTÃO DE ATIVAÇÃO DO MENU MÓVEL */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--off-white-frio);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    z-index: 120;
+    padding: 8px;
+}
+
+.menu-toggle:hover {
+    color: var(--verde-brilhante);
+}
+
+/* --- MAIN CONTENT & LAYOUTS --- */
 .main-content {
     width: 100%;
     max-width: 1200px;
@@ -207,7 +222,6 @@ body::before {
     z-index: 10;
 }
 
-/* --- SEÇÃO HERO --- */
 .hero {
     text-align: left;
     padding: 40px 0;
@@ -261,7 +275,6 @@ body::before {
     gap: 16px;
 }
 
-/* --- BOTÕES PREMIUM COM MICRO-INTERAÇÕES --- */
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -314,7 +327,6 @@ body::before {
     transform: translateY(-2px);
 }
 
-/* --- GRIDS DESKTOP FIXOS --- */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -350,7 +362,6 @@ body::before {
     color: rgba(242, 245, 244, 0.4);
 }
 
-/* Serviços */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -397,7 +408,6 @@ body::before {
     color: rgba(242, 245, 244, 0.5);
 }
 
-/* Processo Criativo */
 .process-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -441,7 +451,6 @@ body::before {
     color: rgba(242, 245, 244, 0.45);
 }
 
-/* --- PORTFÓLIO --- */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -527,7 +536,6 @@ body::before {
     color: var(--bg-principal);
 }
 
-/* --- SEÇÃO DE PACOTES PREMIUM --- */
 .packages-intro {
     background: linear-gradient(135deg, rgba(15, 46, 42, 0.2) 0%, rgba(26, 26, 26, 0.3) 100%);
     border: 1px solid var(--borda-glass);
@@ -651,7 +659,6 @@ body::before {
     border-color: transparent;
 }
 
-/* --- TABELA DE ADICIONAIS --- */
 .addons-box {
     background: var(--bg-card);
     border: 1px solid var(--borda-glass);
@@ -693,7 +700,6 @@ body::before {
     font-weight: 700;
 }
 
-/* --- TESTIMONIALS --- */
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -733,7 +739,6 @@ body::before {
     display: block !important;
 }
 
-/* --- FAQ --- */
 .faq-container {
     display: flex;
     flex-direction: column;
@@ -784,7 +789,6 @@ body::before {
     transform: rotate(180deg);
 }
 
-/* --- MANIFESTO (FRASE TOTALMENTE NOVA CONTRA O CACHE DO NAVEGADOR) --- */
 .manifesto-card {
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(7, 9, 8, 0.8) 100%);
     backdrop-filter: blur(12px);
@@ -839,7 +843,6 @@ body::before {
     font-weight: 900;
 }
 
-/* --- FOOTER --- */
 .footer {
     margin-top: 90px;
     border-top: 1px solid var(--borda-glass);
@@ -874,9 +877,6 @@ body::before {
     transform: scale(1.1);
 }
 
-/* ==========================================================================
-   ANIMAÇÕES NATIVAS
-   ========================================================================== */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -903,7 +903,63 @@ body::before {
 }
 
 @media (max-width: 768px) {
-    .nav-menu { display: none; }
+    /* Ativar botão hambúrguer */
+    .menu-toggle { 
+        display: block !important; 
+    }
+
+    /* Transformar barra de links no painel suspenso Ultra Glassmorphism */
+    .nav-menu { 
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+        position: fixed !important;
+        top: 80px !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: rgba(7, 9, 8, 0.96) !important;
+        backdrop-filter: blur(35px) !important;
+        -webkit-backdrop-filter: blur(35px) !important;
+        border-bottom: 1px solid var(--borda-glass) !important;
+        border-radius: 0 0 24px 24px !important;
+        padding: 40px 24px !important;
+        border-left: none !important;
+        border-right: none !important;
+        
+        /* Oculto inicialmente por omissão */
+        opacity: 0 !important;
+        transform: translateY(-20px) !important;
+        pointer-events: none !important;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+        z-index: 99 !important;
+    }
+
+    /* Classe injetada via JS quando ativado */
+    .nav-menu.active {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+    }
+
+    .nav-item {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .nav-item a {
+        font-size: 1.2rem !important;
+        display: block !important;
+        padding: 10px 0 !important;
+        color: rgba(242, 245, 244, 0.8) !important;
+        width: 100% !important;
+    }
+
+    /* Ocultar CTA fixo do Desktop no telemóvel */
+    .navbar .nav-cta {
+        display: none !important;
+    }
+
+    /* Adaptação e correção de blocos Mobile */
     .stats-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
     .process-grid { grid-template-columns: 1fr; }
@@ -913,7 +969,6 @@ body::before {
     .packages-intro { flex-direction: column; text-align: center; }
     .main-content { padding-top: 110px; }
 
-    /* 👑 ATIVAÇÃO DO LOGO LIQUID METAL NO CELULAR */
     .liquid-metal-bg {
         display: block !important; 
         width: 80% !important;
@@ -925,7 +980,6 @@ body::before {
         animation: floatGlow 6s ease-in-out infinite alternate !important;
     }
 
-    /* 🌟 PROXIMIDADE E AJUSTE DE TÍTULOS CURTOS NO MOBILE */
     .package-section-title {
         margin: 20px 0 12px 0 !important;
         font-size: 1.25rem;
@@ -941,7 +995,6 @@ body::before {
         margin-bottom: 16px !important;
     }
 
-    /* ALINHAMENTO DE EXTREMIDADES NOS ADICIONAIS NO MOBILE */
     .addons-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -969,7 +1022,7 @@ body::before {
         white-space: nowrap !important;
     }
 
-    /* CARROSSEL MOBILE INTUITIVO */
+    /* Carrossel de preços por Swipe Horizontal no Mobile */
     .pricing-grid {
         display: flex !important;
         overflow-x: auto !important;
